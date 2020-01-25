@@ -36,6 +36,11 @@ const Navbar = props => {
               Home Alias
             </Link>
           </li>
+          <li className='nav-item'>
+            <Link className='nav-link' to='/travel/2020/01/26'>
+              Travel with Params
+            </Link>
+          </li>
         </ul>
       </nav>
     </React.Fragment>

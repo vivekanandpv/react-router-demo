@@ -11,19 +11,27 @@ import Home from './Home';
 import Calculator from './Calculator';
 import News from './News';
 import NotFound from './NotFound';
+import Travel from './Travel';
 
 function App() {
   return (
     <React.Fragment>
       <Router>
         <Navbar></Navbar>
-        <Switch>
-          <Route exact path='/' component={Home}></Route>
-          <Route exact path='/calculator' component={Calculator}></Route>
-          <Route exact path='/news' component={News}></Route>
-          <Redirect from='/home' to='/' />
-          <Route exact path='*' component={NotFound}></Route>
-        </Switch>
+        <div className='container'>
+          <Switch>
+            <Route exact path='/' component={Home}></Route>
+            <Route exact path='/calculator' component={Calculator}></Route>
+            <Route exact path='/news' component={News}></Route>
+            <Route
+              exact
+              path='/travel/:year/:month/:day'
+              component={Travel}
+            ></Route>
+            <Redirect from='/home' to='/' />
+            <Route exact path='*' component={NotFound}></Route>
+          </Switch>
+        </div>
       </Router>
     </React.Fragment>
   );
