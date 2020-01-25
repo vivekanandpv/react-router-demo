@@ -10,8 +10,8 @@ import NotFound from './NotFound';
 function App() {
   return (
     <React.Fragment>
-      <Navbar></Navbar>
       <Router>
+        <Navbar></Navbar>
         <Switch>
           <Route exact path='/' component={Home}></Route>
           <Route exact path='/calculator' component={Calculator}></Route>
