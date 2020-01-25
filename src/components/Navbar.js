@@ -37,8 +37,8 @@ const Navbar = props => {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link' to='/travel/2020/01/26'>
-              Travel with Params
+            <Link className='nav-link' to='/travel?year=2020&month=01&day=26'>
+              Travel with Query Params
             </Link>
           </li>
         </ul>
