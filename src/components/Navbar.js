@@ -31,6 +31,11 @@ const Navbar = props => {
               News
             </Link>
           </li>
+          <li className='nav-item'>
+            <Link className='nav-link' to='/home'>
+              Home Alias
+            </Link>
+          </li>
         </ul>
       </nav>
     </React.Fragment>
