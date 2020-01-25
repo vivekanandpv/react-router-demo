@@ -4,7 +4,7 @@ const Navbar = props => {
   return (
     <React.Fragment>
       <nav className='navbar navbar-dark bg-dark'>
-        <a className='navbar-brand' href='#'>
+        <a className='navbar-brand'>
           <img
             src='logo512.png'
             width='30'
