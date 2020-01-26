@@ -22,14 +22,15 @@ function App() {
           <Switch>
             <Route exact path='/' component={Home}></Route>
             <Route exact path='/calculator' component={Calculator}></Route>
-            <Route exact path='/news' component={News}></Route>
+            {/* Need to remove exact as /news now has child routes */}
+            <Route path='/news' component={News}></Route>
             <Route
               exact
               path='/travel/:year/:month/:day'
               component={Travel}
             ></Route>
             <Redirect from='/home' to='/' />
-            <Route exact path='*' component={NotFound}></Route>
+            <Route component={NotFound}></Route>
           </Switch>
         </div>
       </Router>
