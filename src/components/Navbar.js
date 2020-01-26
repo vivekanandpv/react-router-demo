@@ -32,6 +32,21 @@ const Navbar = props => {
             </Link>
           </li>
           <li className='nav-item'>
+            <Link className='nav-link' to='/news/breaking-news'>
+              Breaking News
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link className='nav-link' to='/news/national-news'>
+              National News
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link className='nav-link' to='news/world-news'>
+              World News
+            </Link>
+          </li>
+          <li className='nav-item'>
             <Link className='nav-link' to='/home'>
               Home Alias
             </Link>

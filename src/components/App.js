@@ -9,9 +9,12 @@ import {
 } from 'react-router-dom';
 import Home from './Home';
 import Calculator from './Calculator';
-import News from './News';
 import NotFound from './NotFound';
 import Travel from './Travel';
+import BreakingNews from './BreakingNews';
+import NationalNews from './NationalNews';
+import WorldNews from './WorldNews';
+import NewsNotFound from './NewsNotFound';
 
 function App() {
   return (
@@ -23,7 +26,37 @@ function App() {
             <Route exact path='/' component={Home}></Route>
             <Route exact path='/calculator' component={Calculator}></Route>
             {/* Need to remove exact as /news now has child routes */}
-            <Route path='/news' component={News}></Route>
+            <Route
+              path='/news'
+              render={({ match: { url } }) => (
+                <>
+                  {/* Switch is required for unique routing, wildcard will not work properly otherwise (duplicated) */}
+                  <Switch>
+                    <Redirect
+                      from={`${url}`}
+                      to={`${url}/breaking-news`}
+                      exact
+                    />
+                    <Route
+                      path={`${url}/breaking-news`}
+                      component={BreakingNews}
+                      exact
+                    />
+                    <Route
+                      path={`${url}/national-news`}
+                      component={NationalNews}
+                      exact
+                    />
+                    <Route
+                      path={`${url}/world-news`}
+                      component={WorldNews}
+                      exact
+                    />
+                    <Route component={NewsNotFound}></Route>
+                  </Switch>
+                </>
+              )}
+            ></Route>
             <Route
               exact
               path='/travel/:year/:month/:day'
