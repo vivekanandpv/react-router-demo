@@ -42,7 +42,7 @@ const Navbar = props => {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link' to='news/world-news'>
+            <Link className='nav-link' to='/news/world-news'>
               World News
             </Link>
           </li>
