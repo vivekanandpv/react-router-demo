@@ -16,7 +16,7 @@ function App() {
           <Route exact path='/' component={Home}></Route>
           <Route exact path='/calculator' component={Calculator}></Route>
           <Route exact path='/news' component={News}></Route>
-          <Route exact path='*' component={NotFound}></Route>
+          <Route component={NotFound}></Route>
         </Switch>
       </Router>
     </React.Fragment>
