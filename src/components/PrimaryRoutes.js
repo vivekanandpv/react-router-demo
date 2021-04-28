@@ -3,31 +3,41 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from 'react-router-dom';
 
-import Home from './Home';
-import Calculator from './Calculator';
-import NotFound from './NotFound';
-import Travel from './Travel';
-import NewsRoutes from './NewsRoutes';
+//  All the components are imported using React.lazy()
+//  Read more about dynamic import using import()
+//  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports
+//  Also, read more about Promise API
+//  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+//  Important: React.lazy currently only supports default exports.
 
-const PrimaryRoutes = props => {
+//  Step 1
+const Home = React.lazy(() => import('./Home'));
+const Calculator = React.lazy(() => import('./Calculator'));
+const NotFound = React.lazy(() => import('./NotFound'));
+const Travel = React.lazy(() => import('./Travel'));
+const NewsRoutes = React.lazy(() => import('./NewsRoutes'));
+
+const PrimaryRoutes = (props) => {
   return (
     <React.Fragment>
-      <Switch>
-        <Route exact path='/' component={Home}></Route>
-        <Route exact path='/calculator' component={Calculator}></Route>
-        {/* Need to remove exact as /news now has child routes */}
-        <NewsRoutes></NewsRoutes>
-        <Route
-          exact
-          path='/travel/:year/:month/:day'
-          component={Travel}
-        ></Route>
-        <Redirect from='/home' to='/' />
-        <Route component={NotFound}></Route>
-      </Switch>
+      {/* Step 2: Wrap the routes in Suspense and provide a fallback JSX */}
+      <React.Suspense fallback={<div>Loading app...</div>}>
+        <Switch>
+          <Route exact path='/' component={Home}></Route>
+          <Route exact path='/calculator' component={Calculator}></Route>
+          <Route
+            exact
+            path='/travel/:year/:month/:day'
+            component={Travel}
+          ></Route>
+          <Redirect from='/home' to='/' />
+          <NewsRoutes></NewsRoutes>
+          <Route component={NotFound}></Route>
+        </Switch>
+      </React.Suspense>
     </React.Fragment>
   );
 };

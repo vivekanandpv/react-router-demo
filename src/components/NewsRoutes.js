@@ -3,14 +3,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from 'react-router-dom';
 import BreakingNews from './BreakingNews';
 import NationalNews from './NationalNews';
 import WorldNews from './WorldNews';
 import NewsNotFound from './NewsNotFound';
 
-const NewsRoutes = props => {
+const NewsRoutes = (props) => {
   return (
     <React.Fragment>
       <Route
